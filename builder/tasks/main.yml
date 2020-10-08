@@ -15,9 +15,9 @@
 
 - name: copy war file
   synchronize:
-      mode: pull
-      src: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-      dest: /var/lib/tomcat8/webapps/hello-1.0.war
+    mode: pull
+    src: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
+    dest: /var/lib/tomcat8/webapps/hello-1.0.war
   delegate_to: "{{item}}"
   with_items: "{{groups['web']}}"   
   #со всеми машинами группы или
