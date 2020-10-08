@@ -1,6 +1,6 @@
 ---
 # tasks file for builder
-- name: install packages
+- name: install packages on "{{ansible_nodename}}"
   apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - git
