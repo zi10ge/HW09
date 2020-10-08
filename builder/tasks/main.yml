@@ -1,7 +1,7 @@
 ---
 # tasks file for builder
 - name: install packages
-  apt: name={{item}} state=installed update_cahe=yes
+  apt: pkg={{ item }} state=latest update_cache=yes
   with_items:
     - git
     - default-jdk
