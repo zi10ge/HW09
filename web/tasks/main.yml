@@ -2,10 +2,5 @@
 # tasks file for web
 - name: ensure tomcat package is present
   apt: pkg=tomcat8 state=latest update_cache=yes
+ 
 
-- name: copy war file
-  synchronize:
-    mode: push
-    src: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-    dest: /var/lib/tomcat8/webapps/hello-1.0.war
-  delegate_to: "{{groups['build'][0]}}"
