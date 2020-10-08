@@ -1,0 +1,12 @@
+---
+- name: build server
+- hosts: builder
+  become: yes
+  roles:
+    - builder
+
+- name: production server
+- hosts: web
+  become: yes
+  roles:
+    - web

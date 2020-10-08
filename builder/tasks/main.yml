@@ -1,2 +1,14 @@
 ---
 # tasks file for builder
+- name: install packages
+  apt: name={{item}} state=installed update_cahe=yes
+  with_items:
+    - git
+    - default-jdk
+    - maven
+
+- name: git pull
+  git: repo=https://github.com/boxfuse/boxfuse-sample-java-war-hello.git dest=/home/boxfuse-sample-java-war-hello
+
+- name: build boxfuse war
+  command: mvn package -f /home/boxfuse-sample-java-war-hello
