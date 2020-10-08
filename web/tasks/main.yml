@@ -5,4 +5,4 @@
 
 - name: copy war file
   synchronize: src=/home/boxfuse-sample-java-war-hello/target/hello-1.0.war dest=/var/lib/tomcat8/webapps/hello-1.0.war
-  delegate_to: two
+  delegate_to: web
