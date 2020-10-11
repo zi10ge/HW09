@@ -4,7 +4,7 @@
   apt: pkg=tomcat8 state=present update_cache=yes
  
 - name: copy war file
-  synchronize: mode=push src={{dest_folder}}/hello-1.0.war dest={{dest_folder}}/hello-1.0.war
+  synchronize: mode=push src={{source_folder}}/hello-1.0.war dest={{dest_folder}}/hello-1.0.war
   delegate_to: "{{item}}"
   with_items: "{{groups['build'][0]}}"   
   notify:
