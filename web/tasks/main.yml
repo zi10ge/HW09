@@ -11,3 +11,4 @@
   delegate_to: "{{groups['build'][0]}}"
   notify:
     - restart tomcat8
+  when: wname==web_hello
