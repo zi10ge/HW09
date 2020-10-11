@@ -8,7 +8,8 @@
     mode: push
     src: "{{source_folder}}/hello-1.0.war"
     dest: "{{dest_folder}}/hello-1.0.war"
-  delegate_to: "{{groups['build'][0]}}"
+  delegate_to: "{{item}}"
+  with_items: "{{groups['build']}}"
+  when: wname=="web_hello"
   notify:
     - restart tomcat8
-  when: wname==web_hello
