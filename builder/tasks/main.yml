@@ -1,16 +1,16 @@
 ---
 # tasks file for builder
 - name: install packages on "{{ansible_nodename}}"
-  apt: pkg={{ item }} state=latest update_cache=yes
+  apt: pkg={{item}} state=latest update_cache=yes
   with_items:
     - git
     - default-jdk
     - maven
 
 - name: git pull
-  git: repo=https://github.com/boxfuse/boxfuse-sample-java-war-hello.git dest=/home/boxfuse-sample-java-war-hello
+  git: repo={{git_source}} dest={{dest_folder}}
 
 - name: build boxfuse war
-  command: mvn package -f /home/boxfuse-sample-java-war-hello
+  command: mvn package -f {{dest_folder}}
 
 

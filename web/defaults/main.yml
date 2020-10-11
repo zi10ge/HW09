@@ -1,2 +1,4 @@
 ---
 # defaults file for web
+source_folder: /home/boxfuse-sample-java-war-hello
+dest_folder: /var/lib/tomcat8/webapps

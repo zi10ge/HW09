@@ -1,2 +1,4 @@
 ---
 # defaults file for builder
+git_source: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+dest_folder: /home/boxfuse-sample-java-war-hello

@@ -1,12 +1,11 @@
 ---
 # tasks file for web
 - name: ensure tomcat package is present on "{{ansible_nodename}}"
-  apt: pkg=tomcat8 state=latest update_cache=yes
+  apt: pkg=tomcat8 state=present update_cache=yes
  
 - name: copy war file
-  synchronize:
-    mode: push
-    src: /home/boxfuse-sample-java-war-hello/target/hello-1.0.war
-    dest: /var/lib/tomcat8/webapps/hello-1.0.war
+  synchronize: mode=push src={{dest_folder}}/hello-1.0.war dest={{dest_folder}}/hello-1.0.war
   delegate_to: "{{item}}"
   with_items: "{{groups['build'][0]}}"   
+  notify:
+    - restart tomcat8
